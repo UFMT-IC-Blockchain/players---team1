@@ -59,7 +59,7 @@ INSERT INTO Time (nome, sigla) VALUES
 ('Gamma Titans', 'GMT');
 
 INSERT INTO Jogador (nome, ID_TIME) VALUES
-('Alice Silva', 1, ),
+('Alice Silva', 1),
 ('Bob Santos', 1),
 ('Charlie Costa', 2),
 ('David Oliveira', 2),
