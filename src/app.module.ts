@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { RolesModule } from './modules/roles/roles.module';
+import { UsuarioModule } from './modules/usuario/usuario.module';
 import * as dbConfig from '../configdb.json';
 
 @Module({
@@ -13,6 +15,8 @@ import * as dbConfig from '../configdb.json';
       synchronize: true,
       autoLoadEntities: true,
     }),
+    RolesModule,
+    UsuarioModule,
   ],
   controllers: [AppController],
   providers: [AppService],

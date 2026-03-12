@@ -6,9 +6,8 @@ import {
   ManyToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { Usuario } from "./Usuario";
+import { Usuario } from "../../usuario/entities/usuario.entity";
 
-@Index("role_pkey", ["id"], { unique: true })
 @Entity("role", { schema: "public" })
 export class Role {
   @PrimaryGeneratedColumn({ type: "integer", name: "id" })
