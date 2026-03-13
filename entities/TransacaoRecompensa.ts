@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Jogador } from "./Jogador";
-import { Jogo } from "./Jogo";
+import { Jogo } from "../src/modules/jogo/entities/jogo.entity";
 
 @Index("transacao_recompensa_hash_transacao_key", ["hashTransacao"], {
   unique: true,
