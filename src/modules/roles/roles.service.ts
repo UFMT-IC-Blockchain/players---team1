@@ -7,9 +7,9 @@ import { IRolesService } from './interfaces/roles-service.interface';
 @Injectable()
 export class RolesService implements IRolesService {
   constructor(
-    @InjectRepository(Role)
+    @InjectRepository(Role) // injeta o objeto vai ser time
     private readonly roleRepository: Repository<Role>,
-  ) {}
+  ) { }
 
   async userHasRole(userId: number, roleName: string): Promise<boolean> {
     const role = await this.roleRepository.findOne({

@@ -7,7 +7,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { Time } from "./Time";
+import { Time } from "../src/modules/times/entities/Time";
 import { JogadorJogo } from "./JogadorJogo";
 import { TransacaoRecompensa } from "./TransacaoRecompensa";
 

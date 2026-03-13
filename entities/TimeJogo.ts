@@ -1,6 +1,6 @@
 import { Column, Entity, Index, JoinColumn, ManyToOne } from "typeorm";
 import { Jogo } from "./Jogo";
-import { Time } from "./Time";
+import { Time } from "../src/modules/times/entities/Time";
 
 @Index("time_jogo_pkey", ["idJogo", "idTime"], { unique: true })
 @Entity("time_jogo", { schema: "public" })
