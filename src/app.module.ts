@@ -7,11 +7,12 @@ import { UsuarioModule } from './modules/usuario/usuario.module';
 import { JogadoresModule } from './modules/jogadores/jogadores.module';
 import { JogoModule } from './modules/jogo/jogo.module';
 import { EstatisticasModule } from './modules/estatisticas/estatisticas.module';
+import { ConfrontosModule } from './modules/confrontos/confrontos.module';
 import { Jogo } from './modules/jogo/entities/jogo.entity';
 import { JogadorJogo } from './modules/estatisticas/entities/jogador-jogo.entity';
 import { Jogador } from './modules/jogadores/entities/jogador.entity';
 import { Time } from '../entities/Time';
-import { TimeJogo } from '../entities/TimeJogo';
+import { TimeJogo } from './modules/confrontos/entities/time-jogo.entity';
 import { TransacaoRecompensa } from '../entities/TransacaoRecompensa';
 import { Role } from './modules/roles/entities/role.entity';
 import { Usuario } from './modules/usuario/entities/usuario.entity';
@@ -40,6 +41,7 @@ import * as dbConfig from '../configdb.json';
     JogadoresModule,
     JogoModule,
     EstatisticasModule,
+    ConfrontosModule,
   ],
   controllers: [AppController],
   providers: [AppService],
