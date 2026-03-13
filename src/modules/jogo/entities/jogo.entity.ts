@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import { JogadorJogo } from '../../estatisticas/entities/jogador-jogo.entity';
 import { TimeJogo } from '../../confrontos/entities/time-jogo.entity';
-import { TransacaoRecompensa } from '../../../../entities/TransacaoRecompensa';
+import { TransacaoRecompensa } from '../../recompensas/entities/transacao-recompensa.entity';
 
 @Index('jogo_pkey', ['id'], { unique: true })
 @Entity('jogo', { schema: 'public' })

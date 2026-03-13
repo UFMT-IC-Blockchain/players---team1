@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import { Time } from '../../../../entities/Time';
 import { JogadorJogo } from '../../estatisticas/entities/jogador-jogo.entity';
-import { TransacaoRecompensa } from '../../../../entities/TransacaoRecompensa';
+import { TransacaoRecompensa } from '../../recompensas/entities/transacao-recompensa.entity';
 
 @Index('jogador_carteira_stellar_key', ['carteiraStellar'], { unique: true })
 @Index('jogador_pkey', ['id'], { unique: true })
