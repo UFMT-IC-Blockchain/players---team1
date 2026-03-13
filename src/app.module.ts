@@ -5,6 +5,15 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { RolesModule } from './modules/roles/roles.module';
 import { UsuarioModule } from './modules/usuario/usuario.module';
 import { JogadoresModule } from './modules/jogadores/jogadores.module';
+import { JogoModule } from './modules/jogo/jogo.module';
+import { Jogo } from './modules/jogo/entities/jogo.entity';
+import { JogadorJogo } from '../entities/JogadorJogo';
+import { Jogador } from './modules/jogadores/entities/jogador.entity';
+import { Time } from '../entities/Time';
+import { TimeJogo } from '../entities/TimeJogo';
+import { TransacaoRecompensa } from '../entities/TransacaoRecompensa';
+import { Role } from './modules/roles/entities/role.entity';
+import { Usuario } from './modules/usuario/entities/usuario.entity';
 import * as dbConfig from '../configdb.json';
 
 @Module({
@@ -12,13 +21,23 @@ import * as dbConfig from '../configdb.json';
     TypeOrmModule.forRoot({
       type: 'postgres',
       url: dbConfig.url,
-      entities: [],
-      synchronize: true,
+      entities: [
+        Usuario,
+        Role,
+        Jogo,
+        Jogador,
+        Time,
+        TimeJogo,
+        JogadorJogo,
+        TransacaoRecompensa,
+      ],
+      synchronize: false,
       autoLoadEntities: true,
     }),
     RolesModule,
     UsuarioModule,
     JogadoresModule,
+    JogoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

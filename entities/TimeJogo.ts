@@ -1,5 +1,5 @@
 import { Column, Entity, Index, JoinColumn, ManyToOne } from "typeorm";
-import { Jogo } from "./Jogo";
+import { Jogo } from "../src/modules/jogo/entities/jogo.entity";
 import { Time } from "./Time";
 
 @Index("time_jogo_pkey", ["idJogo", "idTime"], { unique: true })
