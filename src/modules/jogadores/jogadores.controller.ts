@@ -1,11 +1,29 @@
 import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
+import {
+  ApiBadRequestResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiOperation,
+  ApiParam,
+  ApiTags,
+} from '@nestjs/swagger';
 import { JogadoresService } from './jogadores.service';
+import { JogadorDto } from './dto/jogador.dto';
 
+@ApiTags('Jogadores')
 @Controller('jogadores')
 export class JogadoresController {
   constructor(private readonly jogadoresService: JogadoresService) {}
 
   @Get('stellar/:wallet')
+  @ApiOperation({ summary: 'Buscar jogador por carteira Stellar' })
+  @ApiParam({
+    name: 'wallet',
+    description: 'Endereço Stellar (56 caracteres, começa com G)',
+  })
+  @ApiOkResponse({ type: JogadorDto })
+  @ApiNotFoundResponse({ description: 'Jogador não encontrado' })
+  @ApiBadRequestResponse({ description: 'Endereço Stellar inválido' })
   async findByStellarWallet(@Param('wallet') wallet: string) {
     const jogador = await this.jogadoresService.findByStellarWallet(wallet);
 
