@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Jogador } from "../src/modules/jogadores/entities/jogador.entity";
-import { TimeJogo } from "./TimeJogo";
+import { TimeJogo } from "../src/modules/confrontos/entities/time-jogo.entity";
 
 @Index("time_pkey", ["id"], { unique: true })
 @Entity("time", { schema: "public" })

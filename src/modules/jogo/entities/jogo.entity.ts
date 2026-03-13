@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { JogadorJogo } from '../../estatisticas/entities/jogador-jogo.entity';
-import { TimeJogo } from '../../../../entities/TimeJogo';
+import { TimeJogo } from '../../confrontos/entities/time-jogo.entity';
 import { TransacaoRecompensa } from '../../../../entities/TransacaoRecompensa';
 
 @Index('jogo_pkey', ['id'], { unique: true })
