@@ -5,7 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { JogadorJogo } from '../../../../entities/JogadorJogo';
+import { JogadorJogo } from '../../estatisticas/entities/jogador-jogo.entity';
 import { TimeJogo } from '../../../../entities/TimeJogo';
 import { TransacaoRecompensa } from '../../../../entities/TransacaoRecompensa';
 

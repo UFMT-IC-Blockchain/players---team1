@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Time } from '../../../../entities/Time';
-import { JogadorJogo } from '../../../../entities/JogadorJogo';
+import { JogadorJogo } from '../../estatisticas/entities/jogador-jogo.entity';
 import { TransacaoRecompensa } from '../../../../entities/TransacaoRecompensa';
 
 @Index('jogador_carteira_stellar_key', ['carteiraStellar'], { unique: true })

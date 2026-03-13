@@ -6,8 +6,9 @@ import { RolesModule } from './modules/roles/roles.module';
 import { UsuarioModule } from './modules/usuario/usuario.module';
 import { JogadoresModule } from './modules/jogadores/jogadores.module';
 import { JogoModule } from './modules/jogo/jogo.module';
+import { EstatisticasModule } from './modules/estatisticas/estatisticas.module';
 import { Jogo } from './modules/jogo/entities/jogo.entity';
-import { JogadorJogo } from '../entities/JogadorJogo';
+import { JogadorJogo } from './modules/estatisticas/entities/jogador-jogo.entity';
 import { Jogador } from './modules/jogadores/entities/jogador.entity';
 import { Time } from '../entities/Time';
 import { TimeJogo } from '../entities/TimeJogo';
@@ -38,6 +39,7 @@ import * as dbConfig from '../configdb.json';
     UsuarioModule,
     JogadoresModule,
     JogoModule,
+    EstatisticasModule,
   ],
   controllers: [AppController],
   providers: [AppService],
