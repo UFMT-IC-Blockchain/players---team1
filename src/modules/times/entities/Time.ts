@@ -5,8 +5,8 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { Jogador } from "../../../../entities/Jogador";
-import { TimeJogo } from "../../../../entities/TimeJogo";
+import { Jogador } from "../src/modules/jogadores/entities/jogador.entity";
+import { TimeJogo } from "../src/modules/confrontos/entities/time-jogo.entity";
 
 @Index("time_pkey", ["id"], { unique: true })
 @Entity("time", { schema: "public" })

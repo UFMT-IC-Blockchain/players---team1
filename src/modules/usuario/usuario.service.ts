@@ -1,8 +1,15 @@
-import {IUsuario} from "./interfaces/usuario.interface";
-import {UsuarioDto} from "./dto/usuario.dto";
+import { IUsuario } from './interfaces/usuario.interface';
+import { UsuarioDto } from './dto/usuario.dto';
 
 export class UsuarioService implements IUsuario {
-    validaLogin(usuario: UsuarioDto): string {
-        throw new Error("Method not implemented.");
+  validaLogin(usuario: UsuarioDto): string {
+    const login = usuario.login?.trim();
+    const senha = usuario.senha?.trim();
+
+    if (!login || !senha) {
+      return 'Dados inválidos';
     }
+
+    return 'OK';
+  }
 }
