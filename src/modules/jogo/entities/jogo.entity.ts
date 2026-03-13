@@ -4,18 +4,18 @@ import {
   Index,
   OneToMany,
   PrimaryGeneratedColumn,
-} from "typeorm";
-import { JogadorJogo } from "../../../../entities/JogadorJogo";
-import { TimeJogo } from "../../../../entities/TimeJogo";
-import { TransacaoRecompensa } from "../../../../entities/TransacaoRecompensa";
+} from 'typeorm';
+import { JogadorJogo } from '../../../../entities/JogadorJogo';
+import { TimeJogo } from '../../../../entities/TimeJogo';
+import { TransacaoRecompensa } from '../../../../entities/TransacaoRecompensa';
 
-@Index("jogo_pkey", ["id"], { unique: true })
-@Entity("jogo", { schema: "public" })
+@Index('jogo_pkey', ['id'], { unique: true })
+@Entity('jogo', { schema: 'public' })
 export class Jogo {
-  @PrimaryGeneratedColumn({ type: "integer", name: "id" })
+  @PrimaryGeneratedColumn({ type: 'integer', name: 'id' })
   id: number;
 
-  @Column("integer", { name: "duracao" })
+  @Column('integer', { name: 'duracao' })
   duracao: number;
 
   @OneToMany(() => JogadorJogo, (jogadorJogo) => jogadorJogo.idJogo2)
@@ -26,7 +26,7 @@ export class Jogo {
 
   @OneToMany(
     () => TransacaoRecompensa,
-    (transacaoRecompensa) => transacaoRecompensa.idJogo
+    (transacaoRecompensa) => transacaoRecompensa.idJogo,
   )
   transacaoRecompensas: TransacaoRecompensa[];
 }

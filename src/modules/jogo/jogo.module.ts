@@ -6,7 +6,7 @@ import { JogoController } from './jogo.controller';
 import { JogadorJogo } from 'entities/JogadorJogo';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Jogo,JogadorJogo])],
+  imports: [TypeOrmModule.forFeature([Jogo, JogadorJogo])],
   providers: [JogoService],
   controllers: [JogoController],
 })
