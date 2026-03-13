@@ -5,9 +5,9 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { JogadorJogo } from "./JogadorJogo";
-import { TimeJogo } from "./TimeJogo";
-import { TransacaoRecompensa } from "./TransacaoRecompensa";
+import { JogadorJogo } from "../../../../entities/JogadorJogo";
+import { TimeJogo } from "../../../../entities/TimeJogo";
+import { TransacaoRecompensa } from "../../../../entities/TransacaoRecompensa";
 
 @Index("jogo_pkey", ["id"], { unique: true })
 @Entity("jogo", { schema: "public" })
