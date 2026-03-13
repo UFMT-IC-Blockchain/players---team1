@@ -3,7 +3,13 @@ import { UsuarioDto } from './dto/usuario.dto';
 
 export class UsuarioService implements IUsuario {
   validaLogin(usuario: UsuarioDto): string {
-    void usuario;
-    throw new Error('Method not implemented.');
+    const login = usuario.login?.trim();
+    const senha = usuario.senha?.trim();
+
+    if (!login || !senha) {
+      return 'Dados inválidos';
+    }
+
+    return 'OK';
   }
 }

@@ -4,10 +4,11 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RolesModule } from './modules/roles/roles.module';
 import { UsuarioModule } from './modules/usuario/usuario.module';
+import { JogadoresModule } from './modules/jogadores/jogadores.module';
 import { JogoModule } from './modules/jogo/jogo.module';
 import { Jogo } from './modules/jogo/entities/jogo.entity';
 import { JogadorJogo } from '../entities/JogadorJogo';
-import { Jogador } from '../entities/Jogador';
+import { Jogador } from './modules/jogadores/entities/jogador.entity';
 import { Time } from '../entities/Time';
 import { TimeJogo } from '../entities/TimeJogo';
 import { TransacaoRecompensa } from '../entities/TransacaoRecompensa';
@@ -35,6 +36,7 @@ import * as dbConfig from '../configdb.json';
     }),
     RolesModule,
     UsuarioModule,
+    JogadoresModule,
     JogoModule,
   ],
   controllers: [AppController],

@@ -1,5 +1,5 @@
 import { Column, Entity, Index, JoinColumn, ManyToOne } from "typeorm";
-import { Jogador } from "./Jogador";
+import { Jogador } from "../src/modules/jogadores/entities/jogador.entity";
 import { Jogo } from "../src/modules/jogo/entities/jogo.entity";
 
 @Index("jogador_jogo_pkey", ["idJogador", "idJogo"], { unique: true })

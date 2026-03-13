@@ -6,7 +6,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { Jogador } from "./Jogador";
+import { Jogador } from "../src/modules/jogadores/entities/jogador.entity";
 import { Jogo } from "../src/modules/jogo/entities/jogo.entity";
 
 @Index("transacao_recompensa_hash_transacao_key", ["hashTransacao"], {
