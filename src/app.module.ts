@@ -18,6 +18,7 @@ import { TransacaoRecompensa } from './modules/recompensas/entities/transacao-re
 import { Role } from './modules/roles/entities/role.entity';
 import { Usuario } from './modules/usuario/entities/usuario.entity';
 import * as dbConfig from '../configdb.json';
+import { TimesModule } from './modules/times/times.module';
 
 @Module({
   imports: [
@@ -48,4 +49,4 @@ import * as dbConfig from '../configdb.json';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
