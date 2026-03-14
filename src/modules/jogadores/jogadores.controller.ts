@@ -1,4 +1,4 @@
-import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
+import { Controller, Get, NotFoundException, Param, UseGuards } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
   ApiNotFoundResponse,
@@ -9,7 +9,10 @@ import {
 } from '@nestjs/swagger';
 import { JogadoresService } from './jogadores.service';
 import { JogadorDto } from './dto/jogador.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
+
+@UseGuards(JwtAuthGuard)
 @ApiTags('Jogadores')
 @Controller('jogadores')
 export class JogadoresController {

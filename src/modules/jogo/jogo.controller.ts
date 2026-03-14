@@ -6,6 +6,7 @@ import {
   ParseIntPipe,
   Body,
   NotFoundException,
+  UseGuards,
 } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
@@ -20,7 +21,10 @@ import {
 import { JogoService } from './jogo.service';
 import { CreateJogoDto } from './dto/create-jogo.dto';
 import { JogoDto } from './dto/jogo.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
+
+@UseGuards(JwtAuthGuard)
 @ApiTags('Jogos')
 @Controller('jogo')
 export class JogoController {

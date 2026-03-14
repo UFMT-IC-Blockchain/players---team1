@@ -5,9 +5,12 @@ import {
   Param,
   ParseIntPipe,
   Post,
+  UseGuards
 } from '@nestjs/common';
 import { ConfrontosService } from './confrontos.service';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
 @Controller('confrontos')
 export class ConfrontosController {
   constructor(private readonly confrontosService: ConfrontosService) {}
