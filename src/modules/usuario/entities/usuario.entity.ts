@@ -9,7 +9,7 @@ export class Usuario {
   @Column('character varying', { name: 'login', length: 10 })
   login: string;
 
-  @Column('character varying', { name: 'senha', length: 10 })
+  @Column('text', { name: 'senha' })
   senha: string;
 
   @ManyToMany(() => Role, (role) => role.usuarios)
