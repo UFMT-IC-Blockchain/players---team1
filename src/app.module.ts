@@ -12,13 +12,14 @@ import { RecompensasModule } from './modules/recompensas/recompensas.module';
 import { Jogo } from './modules/jogo/entities/jogo.entity';
 import { JogadorJogo } from './modules/estatisticas/entities/jogador-jogo.entity';
 import { Jogador } from './modules/jogadores/entities/jogador.entity';
-import { Time } from '../entities/Time';
+import { Time } from './modules/times/entities/Time';
 import { TimeJogo } from './modules/confrontos/entities/time-jogo.entity';
 import { TransacaoRecompensa } from './modules/recompensas/entities/transacao-recompensa.entity';
 import { Role } from './modules/roles/entities/role.entity';
 import { Usuario } from './modules/usuario/entities/usuario.entity';
 import * as dbConfig from '../configdb.json';
 import { TimesModule } from './modules/times/times.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { TimesModule } from './modules/times/times.module';
       autoLoadEntities: true,
     }),
     RolesModule,
+    AuthModule,
     UsuarioModule,
     JogadoresModule,
     JogoModule,

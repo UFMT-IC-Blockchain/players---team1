@@ -1,5 +1,8 @@
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe, UseGuards } from '@nestjs/common';
 import { Timeservice } from './times.service';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+
+@UseGuards(JwtAuthGuard)
 
 @Controller('times')
 export class TimesController {

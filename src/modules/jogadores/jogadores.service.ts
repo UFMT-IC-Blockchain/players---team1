@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Time } from '../../../entities/Time';
+import { Time } from '../times/entities/Time';
 import { Jogador } from './entities/jogador.entity';
 import { IJogadoresService } from './interfaces/jogadores-service.interface';
 

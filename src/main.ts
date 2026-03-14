@@ -10,6 +10,14 @@ async function bootstrap() {
       .setTitle('players---team1 API')
       .setDescription('Documentação da API')
       .setVersion('1.0')
+      .addBearerAuth(
+        {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        },
+        'jwt',
+      )
       .build();
 
     const document = SwaggerModule.createDocument(app, config);
