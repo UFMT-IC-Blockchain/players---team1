@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RolesModule } from './modules/roles/roles.module';
 import { UsuarioModule } from './modules/usuario/usuario.module';
+<<<<<<< HEAD
 import { JogadoresModule } from './modules/jogadores/jogadores.module';
 import { JogoModule } from './modules/jogo/jogo.module';
 import { EstatisticasModule } from './modules/estatisticas/estatisticas.module';
@@ -38,6 +39,27 @@ import { AuthModule } from './modules/auth/auth.module';
       ],
       synchronize: false,
       autoLoadEntities: true,
+=======
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { Role } from './modules/roles/entities/role.entity';
+import { Usuario } from './modules/usuario/entities/usuario.entity';
+
+@Module({
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env',
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        type: 'postgres',
+        url: configService.get<string>('DATABASE_URL'),
+        entities: [Role, Usuario],
+        synchronize: true,
+      }),
+      inject: [ConfigService],
+>>>>>>> ae2624fb8048cf5034d59562a0fcaa20a0f7f5ee
     }),
     RolesModule,
     AuthModule,

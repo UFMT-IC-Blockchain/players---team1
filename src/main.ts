@@ -4,6 +4,7 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+<<<<<<< HEAD
 
   if (process.env.NODE_ENV !== 'production') {
     const config = new DocumentBuilder()
@@ -25,5 +26,8 @@ async function bootstrap() {
   }
 
   await app.listen(process.env.PORT ?? 3000);
+=======
+  await app.listen(process.env.PORT || 10000, '0.0.0.0');
+>>>>>>> ae2624fb8048cf5034d59562a0fcaa20a0f7f5ee
 }
 void bootstrap();
