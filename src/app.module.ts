@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RolesModule } from './modules/roles/roles.module';
 import { UsuarioModule } from './modules/usuario/usuario.module';
-<<<<<<< HEAD
 import { JogadoresModule } from './modules/jogadores/jogadores.module';
 import { JogoModule } from './modules/jogo/jogo.module';
 import { EstatisticasModule } from './modules/estatisticas/estatisticas.module';
@@ -18,48 +17,32 @@ import { TimeJogo } from './modules/confrontos/entities/time-jogo.entity';
 import { TransacaoRecompensa } from './modules/recompensas/entities/transacao-recompensa.entity';
 import { Role } from './modules/roles/entities/role.entity';
 import { Usuario } from './modules/usuario/entities/usuario.entity';
-import * as dbConfig from '../configdb.json';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TimesModule } from './modules/times/times.module';
 import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      url: dbConfig.url,
-      entities: [
-        Usuario,
-        Role,
-        Jogo,
-        Jogador,
-        Time,
-        TimeJogo,
-        JogadorJogo,
-        TransacaoRecompensa,
-      ],
-      synchronize: false,
-      autoLoadEntities: true,
-=======
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { Role } from './modules/roles/entities/role.entity';
-import { Usuario } from './modules/usuario/entities/usuario.entity';
-
-@Module({
-  imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      envFilePath: '.env',
-    }),
+    ConfigModule.forRoot(),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
         url: configService.get<string>('DATABASE_URL'),
-        entities: [Role, Usuario],
-        synchronize: true,
+        entities: [
+          Usuario,
+          Role,
+          Jogo,
+          Jogador,
+          Time,
+          TimeJogo,
+          JogadorJogo,
+          TransacaoRecompensa,
+        ],
+        synchronize: false,
+        autoLoadEntities: true,
       }),
       inject: [ConfigService],
->>>>>>> ae2624fb8048cf5034d59562a0fcaa20a0f7f5ee
     }),
     RolesModule,
     AuthModule,
@@ -69,6 +52,7 @@ import { Usuario } from './modules/usuario/entities/usuario.entity';
     EstatisticasModule,
     ConfrontosModule,
     RecompensasModule,
+    TimesModule
   ],
   controllers: [AppController],
   providers: [AppService],

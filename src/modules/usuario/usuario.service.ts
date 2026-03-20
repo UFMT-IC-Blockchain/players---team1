@@ -11,4 +11,5 @@ export class UsuarioService implements IUsuario {
     }
 
     return 'OK';
+  }
 }
