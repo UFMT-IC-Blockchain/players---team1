@@ -1,8 +1,9 @@
-import {IUsuario} from "./interfaces/usuario.interface";
-import {UsuarioDto} from "./dto/usuario.dto";
+import { IUsuario } from './interfaces/usuario.interface';
+import { UsuarioDto } from './dto/usuario.dto';
 
 export class UsuarioService implements IUsuario {
-    validaLogin(usuario: UsuarioDto): string {
-        throw new Error("Method not implemented.");
-    }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  validaLogin(_usuario: UsuarioDto): string {
+    throw new Error('Method not implemented.');
+  }
 }
