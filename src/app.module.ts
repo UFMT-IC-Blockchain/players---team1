@@ -47,8 +47,9 @@ import { AuthModule } from './modules/auth/auth.module';
     EstatisticasModule,
     ConfrontosModule,
     RecompensasModule,
+    TimesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
