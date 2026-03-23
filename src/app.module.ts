@@ -52,9 +52,9 @@ import { AuthModule } from './modules/auth/auth.module';
     EstatisticasModule,
     ConfrontosModule,
     RecompensasModule,
-    TimesModule
+    TimesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
