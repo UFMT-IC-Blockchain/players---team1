@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseIntPipe,
@@ -22,6 +23,15 @@ export class ConfrontosController {
     @Body('pontos', ParseIntPipe) pontos: number,
   ) {
     await this.confrontosService.registerMatchResult(jogoId, timeId, pontos);
+    return { ok: true };
+  }
+
+  @Delete(':jogoId/result/:timeId')
+  async removeMatchResult(
+    @Param('jogoId', ParseIntPipe) jogoId: number,
+    @Param('timeId', ParseIntPipe) timeId: number,
+  ) {
+    await this.confrontosService.removeMatchResult(jogoId, timeId);
     return { ok: true };
   }
 

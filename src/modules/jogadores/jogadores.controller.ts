@@ -1,16 +1,7 @@
-import { Controller, Get, NotFoundException, Param, UseGuards } from '@nestjs/common';
-import {
-  ApiBadRequestResponse,
-  ApiNotFoundResponse,
-  ApiOkResponse,
-  ApiOperation,
-  ApiParam,
-  ApiTags,
-} from '@nestjs/swagger';
+import { Body, Controller, Delete, Get, NotFoundException, Param, Patch, Post, UseGuards } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { JogadoresService } from './jogadores.service';
-import { JogadorDto } from './dto/jogador.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-
 
 @UseGuards(JwtAuthGuard)
 @ApiTags('Jogadores')
@@ -18,22 +9,33 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 export class JogadoresController {
   constructor(private readonly jogadoresService: JogadoresService) {}
 
+  @Get()
+  async findAll() {
+    return this.jogadoresService.findAll();
+  }
+
+  @Post()
+  async create(@Body() body: { nome: string; carteiraStellar: string; idTime?: number }) {
+    return this.jogadoresService.create(body.nome, body.carteiraStellar, body.idTime);
+  }
+
   @Get('stellar/:wallet')
-  @ApiOperation({ summary: 'Buscar jogador por carteira Stellar' })
-  @ApiParam({
-    name: 'wallet',
-    description: 'Endereço Stellar (56 caracteres, começa com G)',
-  })
-  @ApiOkResponse({ type: JogadorDto })
-  @ApiNotFoundResponse({ description: 'Jogador não encontrado' })
-  @ApiBadRequestResponse({ description: 'Endereço Stellar inválido' })
   async findByStellarWallet(@Param('wallet') wallet: string) {
     const jogador = await this.jogadoresService.findByStellarWallet(wallet);
-
     if (!jogador) {
       throw new NotFoundException('Jogador não encontrado');
     }
-
     return jogador;
+  }
+
+  @Patch(':id')
+  async update(@Param('id') id: string, @Body() body: { nome?: string; carteiraStellar?: string; idTime?: number }) {
+    return this.jogadoresService.update(Number(id), body);
+  }
+
+  @Delete(':id')
+  async remove(@Param('id') id: string) {
+    await this.jogadoresService.remove(Number(id));
+    return { ok: true };
   }
 }

@@ -95,6 +95,19 @@ export class ConfrontosService implements IConfrontosService {
     };
   }
 
+  async removeMatchResult(jogoId: number, timeId: number): Promise<void> {
+    const result = await this.timeJogoRepository.findOne({
+      where: { idJogo: jogoId, idTime: timeId },
+    });
+
+    if (!result) {
+      throw new NotFoundException('Resultado não encontrado para exclusão');
+    }
+
+    await this.timeJogoRepository.remove(result);
+    await this.recalculateWinners(jogoId);
+  }
+
   async getMatchResults(jogoId: number): Promise<TimeJogo[]> {
     if (!Number.isInteger(jogoId) || jogoId <= 0) {
       throw new BadRequestException('jogoId inválido');
