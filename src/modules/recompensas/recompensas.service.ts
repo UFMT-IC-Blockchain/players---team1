@@ -71,12 +71,17 @@ export class RecompensasService implements IRecompensasService {
     const normalizedStatus = status.trim().toUpperCase();
 
     if (normalizedStatus.length === 0) {
-      throw new BadRequestException('status inválido');
+      // Retorna todas se o status estiver vazio (Consulta Geral)
+      return await this.transacaoRecompensaRepository.find({
+        order: { dataRegistro: 'DESC' },
+        relations: { idJogador: true, idJogo: true },
+      });
     }
 
     return await this.transacaoRecompensaRepository.find({
       where: { status: normalizedStatus },
       order: { dataRegistro: 'DESC' },
+      relations: { idJogador: true, idJogo: true },
     });
   }
 
